@@ -15,3 +15,6 @@ def login(request):
 
 def cuenta(request):
     return render(request, 'micuentatf.html', {})
+
+def animales(request):
+    return render(request, 'Animales.html', {})
