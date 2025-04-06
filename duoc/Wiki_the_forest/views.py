@@ -12,3 +12,6 @@ def registro(request):
 
 def login(request):
     return render(request, 'inicio_sesion_wiki.html', {})
+
+def cuenta(request):
+    return render(request, 'micuentatf.html', {})
