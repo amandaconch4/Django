@@ -18,3 +18,15 @@ def cuenta(request):
 
 def animales(request):
     return render(request, 'Animales.html', {})
+
+def mapa(request):
+    return render(request, 'Lugarestf.html', {})
+
+def enemigos(request):
+    return render(request, 'Enemigos.html', {})
+
+def construcciones(request):
+    return render(request, 'Construcciones.html', {})
+
+def plantas(request):
+    return render(request, 'Flora.html', {})
