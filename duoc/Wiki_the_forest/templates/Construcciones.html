@@ -1,3 +1,6 @@
+<!--Para cargar los archivos estáticos-->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,9 +14,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
-    <link rel=stylesheet href="Construcciones.css" />
-
-
+    <link rel=stylesheet href="{% static 'css/Construcciones.css' %}" />
     
 </head>
 
@@ -21,29 +22,29 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         
-        <a class="navbar-brand" href="menuprincipal_wiki.html" id="fuente">The Forest Wiki</a>
+        <a class="navbar-brand" href="{% url 'menu' %}" id="fuente">The Forest Wiki</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="menuprincipal_wiki.html">Inicio</a>
+                <a class="nav-link" href="{% url 'menu' %}">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="forowiki.html">Foro</a>
+                <a class="nav-link" href="{% url 'foro' %}">Foro</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="registrase_wiki.html">Registrarse</a>
+                  <a class="nav-link" href="{% url 'registro' %}">Registrarse</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="inicio_sesion_wiki.html">Iniciar sesion</a>
+                  <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="micuentatf.html">Mi Cuenta</a>
+                  <a class="nav-link" href="{% url 'cuenta' %}">Mi Cuenta</a>
                 </li>
           </ul>
           <form class="d-flex" id="separar-derecha">
@@ -99,7 +100,7 @@
                         <div class="letra">
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/BasicFire.webp" alt="" class="imagen img-fluid"><br>Fogata basica</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/BasicFire.webp' %}" alt="" class="imagen img-fluid"><br>Fogata basica</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -116,7 +117,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/FirePit.webp" alt="" class="imagen img-fluid"><br>Fogata avanzada</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/FirePit.webp' %}" alt="" class="imagen img-fluid"><br>Fogata avanzada</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -134,7 +135,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/Bonfire.webp" alt="" class="imagen img-fluid"><br> Hoguera</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/Bonfire.webp' %}" alt="" class="imagen img-fluid"><br> Hoguera</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -152,7 +153,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/HuntingShelter.webp" alt="" class="imagen img-fluid"><br>Refugio de caza</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/HuntingShelter.webp' %}" alt="" class="imagen img-fluid"><br>Refugio de caza</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -170,7 +171,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/SmallCabin.webp" alt="" class="imagen img-fluid"><br>Cabaña pequeña</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/SmallCabin.webp' %}" alt="" class="imagen img-fluid"><br>Cabaña pequeña</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -186,7 +187,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/LogCabin.webp" alt="" class="imagen img-fluid"><br>Cabaña grande</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/LogCabin.webp' %}" alt="" class="imagen img-fluid"><br>Cabaña grande</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -202,7 +203,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/RabbitCage.webp" alt="" class="imagen img-fluid"><br>Jaula para conejos</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/RabbitCage.webp' %}" alt="" class="imagen img-fluid"><br>Jaula para conejos</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -218,7 +219,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/WaterCollector.webp" alt="" class="imagen img-fluid"><br>Colector de agua</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/WaterCollector.webp' %}" alt="" class="imagen img-fluid"><br>Colector de agua</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -235,7 +236,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/StickHolderSmall.webp" alt="" class="imagen img-fluid"><br>Reserva de palos<br>(pequeño)</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/StickHolderSmall.webp' %}" alt="" class="imagen img-fluid"><br>Reserva de palos<br>(pequeño)</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -251,7 +252,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/StickMarker.webp" alt="" class="imagen img-fluid"><br>Marcador</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/StickMarker.webp' %}" alt="" class="imagen img-fluid"><br>Marcador</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -269,7 +270,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/LogSled.webp" alt="" class="imagen img-fluid"><br>Trineo de Troncos</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/LogSled.webp' %}" alt="" class="imagen img-fluid"><br>Trineo de Troncos</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -285,7 +286,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/AlpineTreeHouse.webp" alt="" class="imagen img-fluid"><br>Casa del arbol<br>(Alpina)</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/AlpineTreeHouse.webp' %}" alt="" class="imagen img-fluid"><br>Casa del arbol<br>(Alpina)</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -303,7 +304,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/AnimalTrap.webp" alt="" class="imagen img-fluid"><br>Trampa de animales</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/AnimalTrap.webp' %}" alt="" class="imagen img-fluid"><br>Trampa de animales</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -319,7 +320,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/TreeHouse.webp" alt="" class="imagen img-fluid"><br>Casa del arbol</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/TreeHouse.webp' %}" alt="" class="imagen img-fluid"><br>Casa del arbol</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -336,7 +337,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-3 border border-secondary fondo-tabla center">
-                                    <p class="center-titulo"><img src="imagenes/Construcciones/Gazebo.webp" alt="" class="imagen img-fluid"><br>Gazebo</p>
+                                    <p class="center-titulo"><img src="{% static 'imagenes/Construcciones/Gazebo.webp' %}" alt="" class="imagen img-fluid"><br>Gazebo</p>
                                 </div>
                                 <div class="col-sm-3 border border-secondary fondo-tabla">
                                     <p>
@@ -355,10 +356,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
 
             </div>
         </section>
