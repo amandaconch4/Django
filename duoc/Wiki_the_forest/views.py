@@ -30,3 +30,6 @@ def construcciones(request):
 
 def plantas(request):
     return render(request, 'Flora.html', {})
+
+def armas(request):
+    return render(request, 'Armas.html', {})
