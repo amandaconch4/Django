@@ -33,3 +33,9 @@ def plantas(request):
 
 def armas(request):
     return render(request, 'Armas.html', {})
+
+def consumibles(request):
+    return render(request, 'Consumibles.html', {})
+
+def historia(request):
+    return render(request, 'historia.html', {})

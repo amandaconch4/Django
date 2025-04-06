@@ -10,6 +10,8 @@ from .views import enemigos
 from .views import construcciones
 from .views import plantas
 from .views import armas
+from .views import consumibles
+from .views import historia
 
 
 urlpatterns = [
@@ -23,5 +25,7 @@ urlpatterns = [
     path('menu/enemigos', enemigos, name="enemigos"),
     path('menu/construcciones', construcciones, name="construcciones"),
     path('menu/plantas', plantas, name="plantas"),
-    path('menu/armas', armas, name="armas")
+    path('menu/armas', armas, name="armas"),
+    path('menu/consumibles', consumibles, name="consumibles"),
+    path('menu/historia', historia, name="historia")
 ]
