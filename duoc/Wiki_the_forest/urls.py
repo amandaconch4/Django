@@ -12,6 +12,8 @@ from .views import plantas
 from .views import armas
 from .views import consumibles
 from .views import historia
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -28,4 +30,8 @@ urlpatterns = [
     path('menu/armas', armas, name="armas"),
     path('menu/consumibles', consumibles, name="consumibles"),
     path('menu/historia', historia, name="historia")
-]
+    
+] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
