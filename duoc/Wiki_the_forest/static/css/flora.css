@@ -142,61 +142,73 @@ body {
 
 
 
-.container-slider{
+/* Contenedor principal del slider */
+.container-slider {
    width: 90%;
    max-width: 900px;
-   margin: auto;
+   margin: 0 auto;
    overflow: hidden;
+   position: relative;
    box-shadow: 0 0 0 10px #1414148c, 0 15px 50px;
-   margin-top: 50px;
-}
-
-.slider__img{
+   margin-top: 40px;
+ }
+ 
+ /* Contenedor interno del carrusel (las imágenes se alinean en fila) */
+ .slider {
+   display: flex;
+   transition: transform 0.5s ease-in-out;
+   height: 400px;
+ }
+ 
+ /* Cada slide individual */
+ .slider__section {
+   min-width: 100%;
+   box-sizing: border-box;
+ }
+ 
+ /* Imagen dentro de cada slide */
+ .slider__img {
    display: block;
    width: 100%;
-   height: 100%; /*cambie*/
+   height: 100%;
    object-fit: cover;
-}
-
-.slider {
-   display: flex;
-   width: 400%;
-   height: 400px;
-   margin-left: -100%;
-   transition: transform 5s ease-in-out; /* Suaviza el movimiento */
-}
-
-
-.slider__section{
-   width: 100%;
-}
-
-.slider__btn{
+ }
+ 
+ /* Estilos generales para los botones de navegación */
+ .slider__btn {
    position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   z-index: 2;
    width: 40px;
    height: 40px;
    background: rgba(255, 255, 255, 0.7);
-   top: 50%;
-   transform: translateY(-50%);
    font-weight: bold;
    font-family: monospace;
+   font-size: 24px;
    text-align: center;
    border-radius: 50%;
    cursor: pointer;
-
-}
-
-.slider__btn:hover{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: background 0.3s ease;
+ }
+ 
+ /* Hover para los botones */
+ .slider__btn:hover {
    background: #fff;
-}
-
-
-.slider__btn--right{
-   right: 10px;
-}
-.slider__btn--left{
+ }
+ 
+ /* Botón izquierdo */
+ .slider__btn--left {
    left: 10px;
-}
+ }
+ 
+ /* Botón derecho */
+ .slider__btn--right {
+   right: 10px;
+ }
 
 
 /* ---- ----- ----- Pie de pagina ----- ----- ----- */
@@ -243,32 +255,3 @@ nav{
 #separarsearch{
 	padding-right: 20px;
 }
-.container-slider {
-   position: relative; /* Necesario para posicionar los botones dentro */
- }
- 
- .slider__btn {
-   position: absolute;
-   top: 50%;
-   transform: translateY(-50%);
-   z-index: 2;
-   width: 40px;
-   height: 40px;
-   background: rgba(255, 255, 255, 0.7);
-   font-weight: bold;
-   font-family: monospace;
-   text-align: center;
-   border-radius: 50%;
-   cursor: pointer;
-   display: flex;
-   align-items: center;
-   justify-content: center;
- }
- 
- .slider__btn--left {
-   left: 10px;
- }
- 
- .slider__btn--right {
-   right: 10px;
- }
