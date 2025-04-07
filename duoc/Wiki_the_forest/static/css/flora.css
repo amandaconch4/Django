@@ -243,3 +243,32 @@ nav{
 #separarsearch{
 	padding-right: 20px;
 }
+.container-slider {
+   position: relative; /* Necesario para posicionar los botones dentro */
+ }
+ 
+ .slider__btn {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   z-index: 2;
+   width: 40px;
+   height: 40px;
+   background: rgba(255, 255, 255, 0.7);
+   font-weight: bold;
+   font-family: monospace;
+   text-align: center;
+   border-radius: 50%;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .slider__btn--left {
+   left: 10px;
+ }
+ 
+ .slider__btn--right {
+   right: 10px;
+ }

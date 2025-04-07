@@ -1,43 +1,57 @@
 
 
-let currentIndex = 0;
-const slides = document.querySelectorAll('.slider__section'); // Seleccionamos todas las imágenes del slider
-const totalSlides = slides.length;
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slider__section');
 const btnLeft = document.getElementById('btn-left');
 const btnRight = document.getElementById('btn-right');
 
-function moveToSlide(index) {
-  // Evitar que el índice esté fuera del rango
-  if (index < 0) {
-    currentIndex = totalSlides - 1;
-  } else if (index >= totalSlides) {
-    currentIndex = 0;
-  } else {
-    currentIndex = index;
-  }
+let index = 1;
+let width = slides[0].clientWidth;
 
-  // Cambiar la posición del slider
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+// Clonar slides para efecto infinito
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+slider.appendChild(firstClone);
+slider.insertBefore(lastClone, slides[0]);
+
+const allSlides = document.querySelectorAll('.slider__section');
+slider.style.transform = `translateX(-${width * index}px)`;
+
+function moveToSlide(i) {
+  index = i;
+  slider.style.transition = 'transform 0.5s ease-in-out';
+  slider.style.transform = `translateX(-${width * index}px)`;
 }
 
-// Detectamos cuando se ha completado la transición
+btnRight.addEventListener('click', () => {
+  if (index >= allSlides.length - 1) return;
+  moveToSlide(index + 1);
+});
+
+btnLeft.addEventListener('click', () => {
+  if (index <= 0) return;
+  moveToSlide(index - 1);
+});
+
 slider.addEventListener('transitionend', () => {
-  // Reiniciar el índice si llegamos al último slide
-  if (currentIndex === totalSlides) {
-    currentIndex = 0;
-    slider.style.transition = 'none'; // Evita transición al reiniciar
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-    setTimeout(() => {
-      slider.style.transition = 'transform 3s ease-in-out'; // Restaura la transición después de reiniciar
-    }, 20);
+  if (allSlides[index].isEqualNode(firstClone)) {
+    slider.style.transition = 'none';
+    index = 1;
+    slider.style.transform = `translateX(-${width * index}px)`;
+  }
+  if (allSlides[index].isEqualNode(lastClone)) {
+    slider.style.transition = 'none';
+    index = allSlides.length - 2;
+    slider.style.transform = `translateX(-${width * index}px)`;
   }
 });
 
-// Botones de navegación
-btnLeft.addEventListener('click', () => moveToSlide(currentIndex - 1));
-btnRight.addEventListener('click', () => moveToSlide(currentIndex + 1));
-
-// Movimiento automático cada 7 segundos
 setInterval(() => {
-  moveToSlide(currentIndex + 1);
+  moveToSlide(index + 1);
 }, 7000);
+
+// Para que funcione bien en cambios de tamaño de pantalla
+window.addEventListener('resize', () => {
+  width = slides[0].clientWidth;
+  slider.style.transform = `translateX(-${width * index}px)`;
+});
