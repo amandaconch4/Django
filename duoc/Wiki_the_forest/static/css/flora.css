@@ -255,3 +255,36 @@ nav{
 #separarsearch{
 	padding-right: 20px;
 }
+/* Contenedor scrollable para pantallas pequeñas */
+.responsive-table-container {
+   width: 100%;
+   overflow-x: auto;
+   margin: 20px 0;
+ }
+ 
+ /* Estilos generales para la tabla */
+ .tabla-flora {
+   width: 100%;
+   border-collapse: collapse;
+   min-width: 800px; /* evita que se "apriete" demasiado */
+ }
+ 
+ .tabla-flora th,
+ .tabla-flora td {
+   padding: 10px;
+   text-align: left;
+   border: 1px solid #ccc;
+   vertical-align: top;
+ }
+ 
+ /* Estilo para el encabezado */
+ .tabla-flora thead {
+   background-color: #f5f5f5;
+ }
+ 
+ /* Mejora en pantallas pequeñas */
+ @media (max-width: 768px) {
+   .tabla-flora {
+     font-size: 14px;
+   }
+ }
