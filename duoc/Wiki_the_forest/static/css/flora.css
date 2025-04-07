@@ -288,3 +288,12 @@ nav{
      font-size: 14px;
    }
  }
+ .fondo-flora {
+   background-image: url('../imagenes/fondo-3.jpg'); /* Ajusta el nombre según tu imagen */
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   min-height: 100vh; /* Se asegura que cubra toda la altura de la pantalla */
+ }
+ 
+
