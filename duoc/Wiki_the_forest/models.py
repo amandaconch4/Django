@@ -7,7 +7,7 @@ class Perfil(models.Model):
 def __str__(self):
     return self.nombre_usuario
     
-class Usuario (models.Model):
+class usuario (models.Model):
     nombre_usuario = models.CharField(max_length=200)
     correo = models.CharField(max_length=200)
     contraseña = models.CharField(max_length=200)
