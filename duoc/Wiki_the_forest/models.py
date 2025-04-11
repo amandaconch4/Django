@@ -12,7 +12,7 @@ class usuario (models.Model):
     correo = models.CharField(max_length=200)
     contraseña = models.CharField(max_length=200)
     confir_contraseña = models.CharField(max_length=200)
-    foto = models.ImageField(upload_to= 'imagenes/usuario', null = True, blank=True)
+    foto = models.ImageField(upload_to= 'usuarios/', null = True, blank=True)
     perfil = models.ForeignKey(perfil, on_delete=models.CASCADE, related_name='usuarios')
 
     def _str_(self):
