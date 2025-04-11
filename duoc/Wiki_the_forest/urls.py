@@ -12,6 +12,7 @@ from .views import plantas
 from .views import armas
 from .views import consumibles
 from .views import historia
+from .views import recuperar
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -29,7 +30,8 @@ urlpatterns = [
     path('menu/plantas', plantas, name="plantas"),
     path('menu/armas', armas, name="armas"),
     path('menu/consumibles', consumibles, name="consumibles"),
-    path('menu/historia', historia, name="historia")
+    path('menu/historia', historia, name="historia"),
+    path('menu/recuperar', recuperar, name="recuperar")
     
 ] 
 

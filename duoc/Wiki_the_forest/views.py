@@ -39,3 +39,6 @@ def consumibles(request):
 
 def historia(request):
     return render(request, 'historia.html', {})
+
+def recuperar(request):
+    return render(request, 'recuperarcontra.html', {})
