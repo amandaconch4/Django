@@ -8,8 +8,8 @@ class perfil(models.Model):
         return self.nombre_perfil
     
 class usuario (models.Model):
-    nombre_usuario = models.CharField(max_length=200)
-    correo = models.CharField(max_length=200)
+    nombre_usuario = models.CharField(max_length=200, unique=True)
+    correo = models.CharField(max_length=200, unique=True)
     contraseña = models.CharField(max_length=200)
     confir_contraseña = models.CharField(max_length=200)
     foto = models.ImageField(upload_to= 'usuarios/', null = True, blank=True)
