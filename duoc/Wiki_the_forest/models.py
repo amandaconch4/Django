@@ -1,3 +1,20 @@
 from django.db import models
 
 # Create your models here.
+class perfil(models.Model):
+    nombre_perfil = models.CharField(max_length=200)
+
+    def _str_(self):
+        return self.nombre_perfil
+    
+class usuario (models.Model):
+    nombre_usuario = models.CharField(max_length=200)
+    correo = models.CharField(max_length=200)
+    contraseña = models.CharField(max_length=200)
+    confir_contraseña = models.CharField(max_length=200)
+    foto = models.ImageField(upload_to= 'imagenes/usuario', null = True, blank=True)
+    perfil = models.ForeignKey(perfil, on_delete=models.CASCADE, related_name='usuarios')
+
+    def _str_(self):
+        return self.nombre_usuario
+

@@ -1,3 +1,4 @@
+import os
 """
 Django settings for duoc project.
 
@@ -75,8 +76,15 @@ WSGI_APPLICATION = 'duoc.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'localhost:1521/ORCLPDB',
+        'USER': 'usuario',
+        'PASSWORD': 'USUARIO1234',
+        'TEST': { 
+                'USER': 'default_test',
+                'TBLSPACE': 'default_test_tbls',
+                'TBLSPACE_TMP':'default_test_tbls_tmp'
+        }
     }
 }
 
@@ -115,10 +123,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    os.path.join(BASE_DIR, 'wiki_the_forest', 'static'),
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles' #se almacenarán los archivos estáticos cuando uses collectstatic*/
