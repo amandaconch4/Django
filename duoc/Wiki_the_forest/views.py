@@ -1,7 +1,7 @@
 from django import core
 from django.shortcuts import render,redirect
 from django.contrib import messages 
-from .models import Usuario,Perfil
+from .models import usuario,Perfil
 
 # Create your views here.
 def menu(request):
@@ -62,7 +62,7 @@ def registrar_usuario(request):
             # Verificar que el perfil "Usuario" exista, o crearlo
             perfil_usuario, creado = Perfil.objects.get_or_create(nombre_perfil='Usuario')
 
-            nuevo_usuario = Usuario(
+            nuevo_usuario = usuario(
                 nombre_usuario=nombre,
                 correo=email,
                 contraseña=password,
