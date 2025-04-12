@@ -48,7 +48,7 @@
             <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'cuenta' %}">Mi Cuenta</a>
+            <a class="nav-link" href="{% url 'mi_cuenta' %}">Mi Cuenta</a>
           </li>
       </ul>
       <form class="d-flex" id="separarsearch">
@@ -63,8 +63,12 @@
   <div class="perfil-usuario-header">
       <div class="perfil-usuario-portada">
           <div class="perfil-usuario-avatar">
+              {% if usuario.foto %}
+              <img src="{{ usuario.foto.url }}" alt="img-avatar">
+              {% else %}
               <img src="{% static 'img_wiki/user.png' %}" alt="img-avatar">
-              <button type="button" class="boton-avatar">
+              {% endif %}
+              <button type="button" class="boton-avatar" data-bs-toggle="modal" data-bs-target="#editarModal">
                   <i class="far fa-image"></i>
               </button>
           </div>
@@ -80,18 +84,19 @@
               <li> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-              </svg> <i class="bi bi-person-circle"></i> Nombre de Usuario: {{ usuario.username }}</li>
+              </svg> <i class="bi bi-person-circle"></i> Nombre de Usuario: {{ usuario.nombre_usuario }}</li>
               <li> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
                 <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-              </svg> <i class="bi bi-envelope-fill"></i> Email: {{ usuario.email }} </li>
+              </svg> <i class="bi bi-envelope-fill"></i> Email: {{ usuario.correo }} </li>
               <li> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
                 <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
               </svg> <i class="bi bi-key-fill"></i> Contraseña: *********</li>
               <div class="w-33">
                 <div class="center">
-                  <button class="btn btn-dark">
+                  <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editarModal">
                     Editar
                   </button>
+                  <a href="{% url 'cerrar_sesion' %}" class="btn btn-danger ms-2">Cerrar Sesión</a>
                 </div>
               </div>
           </ul>
@@ -101,10 +106,57 @@
 
 </section>
 
+<!-- Modal de Edición -->
+<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarModalLabel">Editar Perfil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{% url 'editar_cuenta' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre de Usuario</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ usuario.nombre_usuario }}">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ usuario.correo }}">
+          </div>
+          <div class="mb-3">
+            <label for="foto" class="form-label">Foto de Perfil</label>
+            <input type="file" class="form-control" id="foto" name="foto" accept="image/*">
+            {% if usuario.foto %}
+            <small class="form-text text-muted">Foto actual: {{ usuario.foto.name }}</small>
+            {% endif %}
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Nueva Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Dejar en blanco para mantener la actual">
+          </div>
+          <div class="mb-3">
+            <label for="confirm_password" class="form-label">Confirmar Nueva Contraseña</label>
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirmar nueva contraseña">
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-
-
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
 
 <br>
 <br>

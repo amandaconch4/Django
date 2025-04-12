@@ -3,7 +3,6 @@ from .views import menu
 from .views import foro
 from .views import registro
 from .views import login
-from .views import cuenta
 from .views import animales
 from .views import mapa
 from .views import enemigos
@@ -22,8 +21,7 @@ urlpatterns = [
     path('menu', menu, name="menu"),
     path('menu/foro', foro, name="foro"),
     path('menu/registro', registro, name="registro"),
-    path('menu/login', login, name="login"),
-    path('menu/cuenta', cuenta, name="cuenta"),
+    path('menu/login', views.iniciar_sesion, name="login"),
     path('menu/animales', animales, name="animales"),
     path('menu/mapa', mapa, name="mapa"),
     path('menu/enemigos', enemigos, name="enemigos"),
@@ -34,7 +32,10 @@ urlpatterns = [
     path('menu/historia', historia, name="historia"),
     path('menu/recuperar', recuperar, name="recuperar"),
     path('menu/registro_usuario/', views.registrar_usuario, name='registrar_usuario'),
-    path('mi-cuenta/', views.mi_cuenta, name='cuenta')
+    path('mi-cuenta/', views.mi_cuenta, name='mi_cuenta'),
+    path('editar-cuenta/', views.editar_cuenta, name='editar_cuenta'),
+    path('iniciar-sesion/', views.iniciar_sesion, name='iniciar_sesion'),
+    path('cerrar-sesion/', views.cerrar_sesion, name='cerrar_sesion')
 ]
 
 
