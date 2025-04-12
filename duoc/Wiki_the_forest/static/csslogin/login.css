@@ -100,4 +100,11 @@ nav{
 #separarsearch{
 	padding-right: 20px;
 }
+input[type="password"] {
+    color: var(--rojo); /* o poné cualquier color que te guste */
+    background-color: var(--dark-x); /* para mantener la coherencia visual */
+    border: 1px solid var(--rojo); /* opcional: destacar el campo */
+    padding: 10px;
+    border-radius: 5px;
+}
 
