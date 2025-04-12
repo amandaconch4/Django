@@ -33,7 +33,8 @@ urlpatterns = [
     path('menu/consumibles', consumibles, name="consumibles"),
     path('menu/historia', historia, name="historia"),
     path('menu/recuperar', recuperar, name="recuperar"),
-    path('menu/registro_usuario/', views.registrar_usuario, name='registrar_usuario')
+    path('menu/registro_usuario/', views.registrar_usuario, name='registrar_usuario'),
+    path('mi-cuenta/', views.mi_cuenta, name='cuenta')
 ]
 
 

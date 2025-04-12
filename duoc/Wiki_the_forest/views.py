@@ -2,6 +2,7 @@ from django import core
 from django.shortcuts import render,redirect
 from django.contrib import messages 
 from .models import usuario,Perfil
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def menu(request):
@@ -79,3 +80,7 @@ def registrar_usuario(request):
             return redirect('registro')
 
     return redirect('registro')
+def mi_cuenta(request):
+    # Aquí puedes acceder a los datos del usuario autenticado
+    usuario = request.user  # `request.user` es el usuario que está actualmente autenticado
+    return render(request, 'micuentatf.html', {'usuario': usuario})
