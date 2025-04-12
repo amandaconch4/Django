@@ -80,6 +80,7 @@ def registrar_usuario(request):
             return redirect('registro')
 
     return redirect('registro')
+
 def mi_cuenta(request):
     # Aquí puedes acceder a los datos del usuario autenticado
     usuario = request.user  # `request.user` es el usuario que está actualmente autenticado
