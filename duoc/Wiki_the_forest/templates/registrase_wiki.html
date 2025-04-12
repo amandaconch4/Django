@@ -86,21 +86,23 @@
                 <div class="align-self-center w-100 px-lg-5 py-lg-4 p-4">
                 <h1 class="font-weight-bold mb-4" id="subir">Ingrese sus Datos</h1>
                 <form class="mb-5">
+                  <form method="POST" action="{% url 'registrar_usuario' %}">
+                    {% csrf_token %}
                     <div class="mb-4">
                       <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
                       <input type="email" class="form-control bg-dark-x border-0" id="exampleInputEmail1" placeholder="nombre@ejemplo.com" aria-describedby="emailHelp" style="background-color: #ffffff;">
                     </div>
                     <div class="mb-4">
-                      <label for="exampleInputEmail1" class="form-label font-weight-bold">Contraseña</label>
-                      <input type="email" class="form-control bg-dark-x border-0" id="exampleInputEmail1" placeholder="Ingrese su contraseña" aria-describedby="emailHelp" style="background-color: #ffffff;">
+                      <label for="password" class="form-label font-weight-bold">Contraseña</label>
+                      <input type="password" name="password" class="form-control bg-dark-x border-0" placeholder="Ingrese su contraseña" required>
 
                     </div>
                     <div class="mb-4">
-                      <label for="exampleInputEmail1" class="form-label font-weight-bold">Confirme su contraseña</label>
-                      <input type="email" class="form-control bg-dark-x border-0" id="exampleInputEmail1" placeholder="Vuelva a ingresar su contraseña" aria-describedby="emailHelp" style="background-color: #ffffff;">
+                      <label for="confirm_password" class="form-label font-weight-bold">Confirme su contraseña</label>
+                      <input type="password" name="confirm_password" class="form-control bg-dark-x border-0"  placeholder="Vuelva a ingresar su contraseña" required>
 
                     </div>
-                      <a href="{% url 'menu' %}" class="button">Crear cuenta</a>                    
+                    <button type="submit" class="btn btn-primary">Crear cuenta</button>                  
                     
                   </form>
 
