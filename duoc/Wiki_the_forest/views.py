@@ -72,7 +72,7 @@ def registrar_usuario(request):
             )
             nuevo_usuario.save()
             messages.success(request, 'Usuario registrado correctamente.')
-            return redirect('menu')
+            return redirect('login')
 
         except Exception as e:
             print("Error al registrar usuario:", e)
