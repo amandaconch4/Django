@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'duoc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'localhost:1521/ORCLPDB',
+        'NAME': 'localhost:1521/orcl',
         'USER': 'USUARIO',
         'PASSWORD': 'USUARIO1234',
         'TEST': { 

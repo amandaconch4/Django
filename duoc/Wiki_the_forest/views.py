@@ -178,20 +178,21 @@ def editar_cuenta(request):
 def eliminar_cuenta(request):
     if request.method == 'POST':
         try:
-            user = usuario.objects.get(nombre_usuario=request.user.username)
-            user.delete()
+            # Obtener el usuario 
+            user_custom = usuario.objects.get(nombre_usuario=request.user.username)
+            # Obtener el usuario de Django
+            user_django = request.user
             
-            # Eliminar también el usuario de Django
-            django_user = User.objects.get(username=request.user.username)
-            django_user.delete()
+            # Eliminar el usuario primero
+            user_custom.delete()
+            # Luego eliminar el usuario de Django
+            user_django.delete()
             
-            messages.success(request, 'Cuenta eliminada exitosamente.')
+            messages.success(request, 'Tu cuenta ha sido eliminada exitosamente.')
             return redirect('menu')
-            
         except usuario.DoesNotExist:
-            messages.error(request, 'Usuario no encontrado.')
-            return redirect('login')
-            
+            messages.error(request, 'Error al eliminar la cuenta.')
+            return redirect('mi_cuenta')
     return redirect('mi_cuenta')
 
 def admin_login(request):
