@@ -36,7 +36,10 @@ urlpatterns = [
     path('editar-cuenta/', views.editar_cuenta, name='editar_cuenta'),
     path('iniciar-sesion/', views.iniciar_sesion, name='iniciar_sesion'),
     path('cerrar-sesion/', views.cerrar_sesion, name='cerrar_sesion'),
-    path('eliminar-cuenta/', views.eliminar_cuenta, name='eliminar_cuenta')
+    path('eliminar-cuenta/', views.eliminar_cuenta, name='eliminar_cuenta'),
+    path('login/', views.iniciar_sesion, name='login'),
+    path('admin-login/', views.admin_login, name='admin_login'),
+    path('registro/', views.registro, name='registro'),
 ]
 
 

@@ -193,3 +193,18 @@ def eliminar_cuenta(request):
             return redirect('login')
             
     return redirect('mi_cuenta')
+
+def admin_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None and user.is_staff:
+            auth_login(request, user)
+            return redirect('/admin/')
+        else:
+            messages.error(request, 'Usuario o contraseña incorrectos. Asegúrese de que es un usuario administrador.')
+            return redirect('admin_login')
+    
+    return render(request, 'admin_login.html')
