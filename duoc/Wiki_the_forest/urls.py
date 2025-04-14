@@ -35,7 +35,8 @@ urlpatterns = [
     path('mi-cuenta/', views.mi_cuenta, name='mi_cuenta'),
     path('editar-cuenta/', views.editar_cuenta, name='editar_cuenta'),
     path('iniciar-sesion/', views.iniciar_sesion, name='iniciar_sesion'),
-    path('cerrar-sesion/', views.cerrar_sesion, name='cerrar_sesion')
+    path('cerrar-sesion/', views.cerrar_sesion, name='cerrar_sesion'),
+    path('eliminar-cuenta/', views.eliminar_cuenta, name='eliminar_cuenta')
 ]
 
 

@@ -173,3 +173,23 @@ def editar_cuenta(request):
             return redirect('login')
             
     return redirect('mi_cuenta')
+
+@login_required(login_url='login')
+def eliminar_cuenta(request):
+    if request.method == 'POST':
+        try:
+            user = usuario.objects.get(nombre_usuario=request.user.username)
+            user.delete()
+            
+            # Eliminar también el usuario de Django
+            django_user = User.objects.get(username=request.user.username)
+            django_user.delete()
+            
+            messages.success(request, 'Cuenta eliminada exitosamente.')
+            return redirect('menu')
+            
+        except usuario.DoesNotExist:
+            messages.error(request, 'Usuario no encontrado.')
+            return redirect('login')
+            
+    return redirect('mi_cuenta')
