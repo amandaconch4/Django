@@ -35,7 +35,10 @@ urlpatterns = [
     path('mi-cuenta/', views.mi_cuenta, name='mi_cuenta'),
     path('editar-cuenta/', views.editar_cuenta, name='editar_cuenta'),
     path('iniciar-sesion/', views.iniciar_sesion, name='iniciar_sesion'),
-    path('cerrar-sesion/', views.cerrar_sesion, name='cerrar_sesion')
+    path('cerrar-sesion/', views.cerrar_sesion, name='cerrar_sesion'),
+    path('login/', views.iniciar_sesion, name='login'),
+    path('admin-login/', views.admin_login, name='admin_login'),
+    path('registro/', views.registro, name='registro'),
 ]
 
 
