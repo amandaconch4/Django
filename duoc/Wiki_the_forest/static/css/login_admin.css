@@ -16,7 +16,7 @@
 }
 
 .admin-title {
-    color: #ffffff;
+    color: #caca1a;
     text-align: center;
     margin-bottom: 30px;
     font-size: 24px;
@@ -56,4 +56,12 @@
     .forgot-password {
         font-size: 14px;
     }
+}
+#fuente {
+    color: #ffc400;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 30px;
+    padding-left: 20px;
+    text-decoration: none;
+    letter-spacing: 1px;
 }
